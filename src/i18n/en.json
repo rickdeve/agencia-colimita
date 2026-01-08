@@ -1,0 +1,20 @@
+{
+  "common": {
+    "viewDetails": "Ver detalles",
+    "learnMoreAbout": "Conoce más sobre",
+    "paginationPrevious": "Anterior",
+    "paginationNext": "Siguiente",
+    "paginationPortfolioPrev": "Proyecto anterior",
+    "paginationPortfolioNext": "Proyecto siguiente"
+  },
+  "headerOffcanvas": {
+    "description": "Somos una agencia digital que impulsa marcas a través del desarrollo web y la creación de contenido estratégico.",
+    "buttonLabel": "Hablemos"
+  },
+  "navigation": {
+    "buttonLabel": "Comenzar"
+  },
+  "footer": {
+    "copyright": "Copyright © {{ year }} Ricardo Moreno."
+  }
+}
