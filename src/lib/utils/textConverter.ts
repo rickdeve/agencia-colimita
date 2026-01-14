@@ -17,7 +17,7 @@ export const markdownify = (content: string, container?: boolean) => {
   // Override the link renderer
   renderer.link = (link) => {
     const isExternal = link.href.startsWith("http");
-    const targetAttrs = link.href.includes("getastrothemes")
+    const targetAttrs = link.href.includes("agencia")
       ? `target="_blank" rel="noopener"`
       : isExternal
         ? `target="_blank" rel="noopener noreferrer nofollow"`

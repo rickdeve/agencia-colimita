@@ -25,7 +25,7 @@
 # Specific SEO configurations that complement the general site settings.
 # -----------------------------------------------------------------------------------------------------------------------------------
 [seo]
-  author = "Getastrothemes"
+  author = ""
   keywords = [
     "free digital agency",
     "free astro template",
@@ -69,9 +69,8 @@
   footerDescription = "" # Check src/i18n/en.json and src/i18n/fr.json for changing the footer description in different languages or directly add value here if you are not using internationalization feature
 
   # For changing footer description and footer copyright in different languages see src/i18n/en.json and src/i18n/fr.json
-  # We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!
   [settings.copyright]
-    enable = true
+    enable = false
     text   = "" # Check src/i18n/en.json and src/i18n/fr.json for changing the copyright text in different languages or directly add value here if you are not using internationalization feature
 
   # Multilingual settings (check src/config/language.json for changing the languages)
@@ -82,7 +81,7 @@
     enable               = true
     defaultLanguage      = "en"
     disableLanguages     = [] # List of languages to disable (eg: ["fr", "es"])
-    showDefaultLangInUrl = false # Show default language in URL (eg: https://getastrothemes.com/en/)
+    showDefaultLangInUrl = false
 
   # Global Contact Information
   [settings.contactInfo]
