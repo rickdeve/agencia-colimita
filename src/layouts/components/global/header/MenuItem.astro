@@ -8,7 +8,13 @@ const { pathname } = Astro.url;
 
 {
   menu.name && (
-    <li class="nav-item" role="menuitem">
+    <li
+      class="nav-item"
+      role="menuitem"
+      data-aos="reveal-anim-top"
+      data-aos-delay="50"
+      data-aos-duration="400"
+      data-aos-easing="reveal-ease-out">
       <a
         {...{
           // Set `rel` attribute for external links or use provided value

@@ -51,7 +51,9 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
         title && (
           <h1
             data-aos="reveal-anim-top"
-            data-aos-duration="1500"
+            data-aos-delay="150"
+            data-aos-duration="700"
+            data-aos-easing="ease-out-quart"
             class:list={[
               "text-inherit",
               fontSize,
@@ -65,8 +67,9 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
         button?.enable ? (
           <div
             data-aos="reveal-anim-top"
-            data-aos-duration="1500"
-            data-aos-delay="200"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            data-aos-easing="ease-out-quart"
             class="mx-auto max-w-2xl space-y-6">
             {description && (
               <p
@@ -86,8 +89,9 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
           description && (
             <p
               data-aos="reveal-anim-top"
-              data-aos-delay="200"
-              data-aos-duration="1500"
+              data-aos-delay="50"
+              data-aos-duration="500"
+              data-aos-easing="ease-out-cubic"
               class="mx-auto max-w-2xl text-lg text-inherit opacity-80"
               set:html={markdownify(description)}
             />
@@ -99,9 +103,10 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
         image && (
           <div
             data-aos="reveal-anim-top"
-            data-aos-duration="1500"
-            data-aos-delay="300"
+            data-aos-duration="700"
+            data-aos-delay="150"
             data-aos-offset="0"
+            data-aos-easing="ease-out-quart"
             class="mx-auto mt-10 -mb-24 max-w-4xl md:mt-20 md:-mb-32">
             <OptimizedImage
               src={image}

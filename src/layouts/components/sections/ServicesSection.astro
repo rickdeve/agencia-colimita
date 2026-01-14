@@ -72,73 +72,86 @@ if (!enable) {
         ? "grid grid-cols-1 items-start space-y-14 gap-x-10 lg:grid-cols-2 lg:space-y-0"
         : "space-y-14",
     ]}>
-    {
-      title && (
-        <h2
-          class:list={[
-            "text-h1-sm md:text-h1 mx-auto max-w-3xl",
-            appearance === "dark" && "text-light",
-            isHorizontalSection ? "lg:sticky lg:top-32" : "text-center",
-          ]}
-          set:html={markdownify(title)}
-        />
-      )
-    }
+    
+    <!-- Título -->
+    {title && (
+      <h2
+        class:list={[
+          "text-h1-sm md:text-h1 mx-auto max-w-3xl",
+          appearance === "dark" && "text-light",
+          isHorizontalSection ? "lg:sticky lg:top-32" : "text-center",
+        ]}
+        set:html={markdownify(title)}
+        data-aos="reveal-anim-top"
+        data-aos-delay="50"
+        data-aos-duration="700"
+        data-aos-easing="ease-out-quart"
+        data-aos-offset="100"
+      />
+    )}
 
-    {
-      layout === "accordion" ? (
-        <div class="hs-accordion-group mx-auto w-full max-w-4xl">
-          {services.map((item, index): { item: Service; index: number } => {
-            const id = uniqueIdGenerator(item.title);
-            return (
+    <!-- Acordeón -->
+    {layout === "accordion" && (
+      <div class="hs-accordion-group mx-auto w-full max-w-4xl">
+        {services.map((item, index): { item: Service; index: number } => {
+          const id = uniqueIdGenerator(item.title);
+          return (
+            <div
+              class:list={[
+                "hs-accordion relative border-b py-6 text-start first:border-t lg:pe-20",
+                "transition-all duration-300 lg:flex lg:flex-row lg:items-start lg:justify-between lg:gap-16",
+                index === 0 && "active",
+              ]}
+              id={"accordion-" + id}
+              data-aos="reveal-anim-bottom"
+              data-aos-delay={String(100 + index * 100)} 
+              data-aos-duration="500"
+              data-aos-easing="ease-out-quart"
+              data-aos-offset="100"
+            >
+              <!-- Número -->
               <div
+                class="font-secondary mt-2.5 mb-4 text-2xl font-semibold lg:mb-0 lg:text-sm"
+                set:html={(index <= 9 ? "0" : "") + (index + 1)}
+              />
+              
+              <!-- Botón del acordeón -->
+              <button
+                title="show or hide accordion content"
+                class="hs-accordion-toggle absolute inset-0 size-full"
+              />
+              <button
+                title="show or hide accordion content"
+                aria-controls={"accordion-content-" + id}
+                aria-expanded={index === 0 ? "true" : "false"}
+                class="hs-accordion-toggle text-dark font-secondary text-h5 w-full pe-20 text-start font-medium lg:pe-0"
+                set:html={item.title}
+              />
+              
+              <!-- Contenido del acordeón -->
+              <div
+                role="region"
+                id={"accordion-content-" + id}
+                aria-labelledby={"accordion-" + id}
                 class:list={[
-                  "hs-accordion relative border-b py-6 text-start first:border-t lg:pe-20",
-                  "transition-all duration-300 lg:flex lg:flex-row lg:items-start lg:justify-between lg:gap-16",
-                  index === 0 && "active",
+                  "hs-accordion-content hs-accordion-active:opacity-100 w-full max-w-lg overflow-hidden opacity-0 transition-all duration-300 ease-linear",
+                  index !== 0 && "hidden",
                 ]}
-                id={"accordion-" + id}>
-                <div
-                  class="font-secondary mt-2.5 mb-4 text-2xl font-semibold lg:mb-0 lg:text-sm"
-                  set:html={(index <= 9 ? "0" : "") + (index + 1)}
-                />
-                <button
-                  title="show or hide accordion content"
-                  class="hs-accordion-toggle absolute inset-0 size-full"
-                />
-                <button
-                  title="show or hide accordion content"
-                  aria-controls={"accordion-content-" + id}
-                  aria-expanded={index === 0 ? "true" : "false"}
-                  class="hs-accordion-toggle text-dark font-secondary text-h5 w-full pe-20 text-start font-medium lg:pe-0"
-                  set:html={item.title}
-                />
-                <div
-                  role="region"
-                  id={"accordion-content-" + id}
-                  aria-labelledby={"accordion-" + id}
-                  class:list={[
-                    "hs-accordion-content hs-accordion-active:opacity-100 w-full max-w-lg overflow-hidden opacity-0 transition-all duration-300 ease-linear",
-                    index !== 0 && "hidden",
-                  ]}>
-                  <div class="prose-styles prose-p:first:mt-0 prose-p:last:mb-0 pt-3 lg:pt-0">
-                    <div set:html={markdownify(item.description, true)} />
-                  </div>
-                </div>
-
-                <div class="hs-accordion-active:rotate-180 pointer-events-none absolute end-0 top-8 flex transition duration-300">
-                  <ReactIcons
-                    icon="RxArrowTopRight"
-                    class="text-dark text-xl"
-                  />
+              >
+                <div class="prose-styles prose-p:first:mt-0 prose-p:last:mb-0 pt-3 lg:pt-0">
+                  <div set:html={markdownify(item.description, true)} />
                 </div>
               </div>
-            );
-          })}
-        </div>
-      ) : layout === "grid" ? (
-        <div class="py-8 text-center text-sm text-gray-400 italic" />
-      ) : null
-    }
+
+              <!-- Icono -->
+              <div class="hs-accordion-active:rotate-180 pointer-events-none absolute end-0 top-8 flex transition duration-300">
+                <ReactIcons icon="RxArrowTopRight" class="text-dark text-xl" />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
   </div>
 </section>
+

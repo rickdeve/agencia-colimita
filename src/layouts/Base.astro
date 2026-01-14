@@ -68,9 +68,9 @@ className = fitToScreen
 
     {
       footerLayout === "footer-1" ? (
-        <div class="py-8 text-center text-sm text-gray-400 italic"></div>
+        <div class="py-8 text-center text-sm text-gray-400 italic" />
       ) : footerLayout === "footer-2" ? (
-        <div class="py-8 text-center text-sm text-gray-400 italic"></div>
+        <div class="py-8 text-center text-sm text-gray-400 italic" />
       ) : footerLayout === "footer-3" ? (
         <FooterThree footerSpaceTop={footerSpaceTop} />
       ) : null
@@ -85,11 +85,18 @@ className = fitToScreen
       document.addEventListener("DOMContentLoaded", async () => {
         // AOS - https://github.com/michalsnik/aos
         // -----------------------------------------------------
-        AOS.init({
+        /*AOS.init({
           duration: 1300,
           easing: "reveal-ease-out",
           disable: "mobile",
           once: true,
+        });*/
+        AOS.init({
+          duration: 700, // duración estándar de la animación en ms
+          easing: "ease-out-quart", // curva de entrada suave y natural
+          offset: 100, // dispara animación un poco antes de que el elemento esté en viewport
+          once: true, // se anima solo una vez al aparecer
+          disable: false, // ✅ NO desactivar en móvil
         });
 
         // Smooth Scroll - https://github.com/gblazex/smoothscroll-for-websites/wiki

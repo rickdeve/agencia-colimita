@@ -37,16 +37,37 @@ if (!enable) {
 
 <section id="pricing">
   <div class="container space-y-14">
+    <!-- Título -->
     {
       title && (
         <div class="text-center">
-          <h2 class="text-h1-sm md:text-h1" set:html={markdownify(title)} />
+          <h2
+            class="text-h1-sm md:text-h1"
+            set:html={markdownify(title)}
+            data-aos="reveal-anim-top"
+            data-aos-delay="50"
+            data-aos-duration="700"
+            data-aos-easing="ease-out-quart"
+            data-aos-offset="100"
+          />
         </div>
       )
     }
 
+    <!-- Lista de Planes -->
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {list.map((item) => <PricingCard content={item} />)}
+      {
+        list.map((item, index) => (
+          <div
+            data-aos="reveal-anim-bottom"
+            data-aos-delay={String(100 + index * 100)}
+            data-aos-duration="500"
+            data-aos-easing="ease-out-quart"
+            data-aos-offset="100">
+            <PricingCard content={item} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

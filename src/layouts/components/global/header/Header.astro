@@ -36,14 +36,40 @@ const {
     { "has-dark-background": hasDarkBackground },
     { "has-sticky-behavior": stickyHeader || position === "fixed" },
     ClassName,
-  ]}>
+  ]}
+  data-aos="reveal-anim-top"
+  data-aos-duration="700"
+  data-aos-delay="50"
+  data-aos-easing="ease-out-quart">
   <nav class="xl:container-12xl relative max-xl:container">
     <div
       class="hs-dropdown relative flex items-center justify-between py-6 [--auto-close:inside] [--gpu-acceleration:false] [--strategy:absolute] lg:[--strategy:static]">
-      {hasDarkBackground ? <Logo src={logoAlternate} /> : <Logo />}
+      {
+        hasDarkBackground ? (
+          <Logo
+            src={logoAlternate}
+            data-aos="reveal-anim-top"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            data-aos-easing="ease-out-quart"
+          />
+        ) : (
+          <Logo
+            data-aos="reveal-anim-top"
+            data-aos-duration="600"
+            data-aos-delay="100"
+            data-aos-easing="ease-out-quart"
+          />
+        )
+      }
 
-      <!-- Navbar For Header -->
-      <Navbar />
+      {/* Navbar For Header */}
+      <Navbar
+        data-aos="reveal-anim-left"
+        data-aos-duration="700"
+        data-aos-delay="150"
+        data-aos-easing="ease-out-quart"
+      />
 
       {/* Navigation Button For Large Devices */}
       {
@@ -60,6 +86,10 @@ const {
                     ? "btn-accent effect-color-dark"
                     : "btn-primary effect-color-accent",
                 ]}
+                data-aos="reveal-anim-bottom"
+                data-aos-duration="700"
+                data-aos-delay="200"
+                data-aos-easing="ease-out-quart"
               />
             )}
           </div>
@@ -82,6 +112,10 @@ const {
             aria-controls="offcanvas-main"
             data-hs-overlay="#offcanvas-main"
             data-hs-overlay-options='{"emulateScrollbarSpace": true}'
+            data-aos="reveal-anim-bottom"
+            data-aos-duration="700"
+            data-aos-delay="250"
+            data-aos-easing="ease-out-quart"
           />
         )
       }

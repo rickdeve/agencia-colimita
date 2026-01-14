@@ -38,27 +38,46 @@ const copyrightParts = splitProtectedText(copyrightText);
   <div class="container pb-8 md:pb-16">
     <div
       class="grid grid-cols-1 gap-y-10 border-b-2 border-white py-16 text-white md:py-24 lg:grid-cols-2 lg:gap-x-20 xl:gap-x-10">
+      <!-- Columna izquierda -->
       <div class="space-y-10">
         {
           title && (
             <h2
               class="text-display-6 xs:text-display-5 md:text-display-4 text-white"
               set:html={markdownify(title)}
+              data-aos="reveal-anim-top"
+              data-aos-delay="50"
+              data-aos-duration="700"
+              data-aos-easing="ease-out-quart"
+              data-aos-offset="100"
             />
           )
         }
+
         {
           description && (
             <div
               class="w-full max-w-lg text-lg"
               set:html={markdownify(description, true)}
+              data-aos="reveal-anim-top"
+              data-aos-delay="150"
+              data-aos-duration="700"
+              data-aos-easing="ease-out-quart"
+              data-aos-offset="100"
             />
           )
         }
+
         <div class="space-y-4">
           {
             config.settings.copyright?.enable && (
-              <ul class="has-list has-list-slash prose-a:text-inherit flex flex-wrap gap-y-2">
+              <ul
+                class="has-list has-list-slash prose-a:text-inherit flex flex-wrap gap-y-2"
+                data-aos="reveal-anim-bottom"
+                data-aos-delay="200"
+                data-aos-duration="500"
+                data-aos-easing="ease-out-quart"
+                data-aos-offset="100">
                 {copyrightParts.map((value) => (
                   <li class="prose-a:text-text-default/70 prose-a:hover:text-text-default">
                     <span set:html={markdownify(value)} />
@@ -74,13 +93,31 @@ const copyrightParts = splitProtectedText(copyrightText);
             class="gap-5"
             linkType="follow"
             list={social.main.filter((s) => s.enable)}
+            data-aos="reveal-anim-bottom"
+            data-aos-delay="250"
+            data-aos-duration="500"
+            data-aos-easing="ease-out-quart"
           />
         </div>
       </div>
-      <ContactForm form={form} />
+
+      <!-- Columna derecha: Contact Form -->
+      <ContactForm
+        form={form}
+        data-aos="reveal-anim-bottom"
+        data-aos-delay="300"
+        data-aos-duration="700"
+        data-aos-easing="ease-out-quart"
+      />
     </div>
+
+    <!-- Dirección, teléfono, email -->
     <div
-      class="font-secondary flex flex-wrap items-center justify-between gap-x-8 gap-y-6 pt-6 text-sm leading-loose font-semibold text-white uppercase">
+      class="font-secondary flex flex-wrap items-center justify-between gap-x-8 gap-y-6 pt-6 text-sm leading-loose font-semibold text-white uppercase"
+      data-aos="reveal-anim-bottom"
+      data-aos-delay="350"
+      data-aos-duration="700"
+      data-aos-easing="ease-out-quart">
       {address && <p set:html={markdownify(address)} />}
       <div class="md:text-end">
         {phone && <p set:html={markdownify(phone)} />}

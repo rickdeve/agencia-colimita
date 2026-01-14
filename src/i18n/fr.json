@@ -15,7 +15,7 @@
     "buttonLabel": "Commencer"
   },
   "footer": {
-    "copyright": "Droits d’auteur © {{ year }} / Réalisé avec [Getastrothemes](https://getastrothemes.com/)",
-    "_comment": "Nous vous serions reconnaissants de conserver le copyright du thème. Merci de soutenir Getastrothemes !"
+    "copyright": "",
+    "_comment": ""
   }
 }
